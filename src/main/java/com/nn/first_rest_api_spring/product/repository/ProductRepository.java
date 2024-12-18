@@ -30,4 +30,12 @@ public class ProductRepository {
     public Optional<Product> findById(Long id) {
         return Optional.ofNullable(map.get(id));
     }
+
+    public List<Product> findAll() {
+        return new ArrayList<>(map.values());
+    }
+
+    public void deleteById(Long id) {
+        map.remove(id);
+    }
 }

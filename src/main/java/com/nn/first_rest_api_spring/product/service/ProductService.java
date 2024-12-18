@@ -9,6 +9,9 @@ import com.nn.first_rest_api_spring.product.support.ProductExceptionSupplier;
 import com.nn.first_rest_api_spring.product.support.ProductMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductService {
 
@@ -36,5 +39,19 @@ public class ProductService {
                 .orElseThrow(ProductExceptionSupplier.productNotFound(id));
         productRepository.save(productMapper.toProduct(product, updateProductRequest));
         return productMapper.toProductResponse(product);
+    }
+
+    public List<ProductResponse> findAll() {
+        return productRepository.findAll()
+                .stream()
+                .map(productMapper::toProductResponse)
+                .collect(Collectors.toList());
+    }
+
+    public void delete(Long id) {
+        Product product = productRepository
+                .findById(id)
+                .orElseThrow(ProductExceptionSupplier.productNotFound(id));
+        productRepository.deleteById(product.getId());
     }
 }
