@@ -1,9 +1,16 @@
 package com.nn.first_rest_api_spring.product.domain;
 
+import jakarta.persistence.*;
+
+@Entity(name = "products")
 public class Product {
 
+    @Id
+    @GeneratedValue
     private Long id;
     private String name;
+
+    public Product() {}
 
     public Product(String name) { this.name = name; }
 
