@@ -1,12 +1,10 @@
 package com.nn.first_rest_api_spring.product.api;
 
-import com.nn.first_rest_api_spring.product.api.request.ProductRequest;
-import com.nn.first_rest_api_spring.product.api.request.UpdateProductRequest;
+import com.nn.first_rest_api_spring.product.api.request.*;
 import com.nn.first_rest_api_spring.product.api.response.ProductResponse;
 import com.nn.first_rest_api_spring.product.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

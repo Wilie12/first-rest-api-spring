@@ -1,12 +1,10 @@
 package com.nn.first_rest_api_spring.product.service;
 
-import com.nn.first_rest_api_spring.product.api.request.ProductRequest;
-import com.nn.first_rest_api_spring.product.api.request.UpdateProductRequest;
+import com.nn.first_rest_api_spring.product.api.request.*;
 import com.nn.first_rest_api_spring.product.api.response.ProductResponse;
 import com.nn.first_rest_api_spring.product.domain.Product;
 import com.nn.first_rest_api_spring.product.repository.ProductRepository;
-import com.nn.first_rest_api_spring.product.support.ProductExceptionSupplier;
-import com.nn.first_rest_api_spring.product.support.ProductMapper;
+import com.nn.first_rest_api_spring.product.support.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
