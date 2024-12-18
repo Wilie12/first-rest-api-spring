@@ -4,6 +4,7 @@ import com.nn.first_rest_api_spring.product.api.request.ProductRequest;
 import com.nn.first_rest_api_spring.product.api.response.ProductResponse;
 import com.nn.first_rest_api_spring.product.domain.Product;
 import com.nn.first_rest_api_spring.product.repository.ProductRepository;
+import com.nn.first_rest_api_spring.product.support.ProductExceptionSupplier;
 import com.nn.first_rest_api_spring.product.support.ProductMapper;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class ProductService {
     }
 
     public ProductResponse find(Long id) {
-        Product product = productRepository.findById(id).orElseThrow(RuntimeException::new);
+        Product product = productRepository.findById(id).orElseThrow(ProductExceptionSupplier.productNotFound(id));
         return productMapper.toProductResponse(product);
     }
 }
