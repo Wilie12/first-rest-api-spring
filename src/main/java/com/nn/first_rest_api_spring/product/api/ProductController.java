@@ -1,6 +1,7 @@
 package com.nn.first_rest_api_spring.product.api;
 
 import com.nn.first_rest_api_spring.product.api.request.ProductRequest;
+import com.nn.first_rest_api_spring.product.api.request.UpdateProductRequest;
 import com.nn.first_rest_api_spring.product.api.response.ProductResponse;
 import com.nn.first_rest_api_spring.product.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,6 +28,20 @@ public class ProductController {
     @Operation(summary = "Find product by id")
     public ResponseEntity<ProductResponse> find(@PathVariable Long id) {
         ProductResponse productResponse = productService.find(id);
-        return ResponseEntity.status(HttpStatus.OK).body(productResponse);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productResponse);
+    }
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Update product")
+    public ResponseEntity<ProductResponse> update(
+            @PathVariable Long id,
+            @RequestBody UpdateProductRequest updateProductRequest
+    ) {
+        ProductResponse productResponse = productService.update(id, updateProductRequest);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productResponse);
     }
 }
