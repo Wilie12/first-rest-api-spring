@@ -3,9 +3,7 @@ package com.nn.first_rest_api_spring.product.repository;
 import com.nn.first_rest_api_spring.product.domain.Product;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Repository
 public class ProductRepository {
@@ -19,9 +17,13 @@ public class ProductRepository {
     }
 
     private Product setId(Product entity) {
-        entity.setId(counter);
-        map.put(counter, entity);
-        counter++;
+        if (entity.getId() != null) {
+            map.put(entity.getId(), entity);
+        } else {
+            entity.setId(counter);
+            map.put(counter, entity);
+            counter++;
+        }
         return entity;
     }
 
