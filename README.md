@@ -64,3 +64,4 @@ Note: Product must be previously created to delete it.
 - H2 Database
 - Spring Data JPA
 - Spring Boot DevTools
+- Swagger
